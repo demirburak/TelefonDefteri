@@ -37,12 +37,21 @@
             this.btnSil = new System.Windows.Forms.Button();
             this.btnEkle = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnGrupCikar = new System.Windows.Forms.Button();
+            this.btnGrupEkle = new System.Windows.Forms.Button();
+            this.cmbGrup = new System.Windows.Forms.ComboBox();
+            this.btnEpostaCikar = new System.Windows.Forms.Button();
+            this.btnEpostaEkle = new System.Windows.Forms.Button();
+            this.btnTelefonCikar = new System.Windows.Forms.Button();
+            this.btnTelefonEkle = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
             this.lvEpostalar = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.lvTelefonlar = new System.Windows.Forms.ListView();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.pbProfil = new System.Windows.Forms.PictureBox();
-            this.txtGrup = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,8 +64,6 @@
             this.lblIsyeri = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lblAdiSoyadi = new System.Windows.Forms.Label();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListe)).BeginInit();
@@ -72,7 +79,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(395, 730);
+            this.groupBox1.Size = new System.Drawing.Size(395, 806);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kişiler";
@@ -81,9 +88,9 @@
             // 
             this.panel2.Controls.Add(this.dgvListe);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 117);
+            this.panel2.Location = new System.Drawing.Point(3, 80);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(389, 610);
+            this.panel2.Size = new System.Drawing.Size(389, 723);
             this.panel2.TabIndex = 2;
             // 
             // dgvListe
@@ -99,19 +106,17 @@
             this.dgvListe.ReadOnly = true;
             this.dgvListe.RowTemplate.Height = 25;
             this.dgvListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListe.Size = new System.Drawing.Size(389, 610);
+            this.dgvListe.Size = new System.Drawing.Size(389, 723);
             this.dgvListe.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnAra);
             this.panel1.Controls.Add(this.txtAra);
-            this.panel1.Controls.Add(this.btnSil);
-            this.panel1.Controls.Add(this.btnEkle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(389, 98);
+            this.panel1.Size = new System.Drawing.Size(389, 61);
             this.panel1.TabIndex = 1;
             // 
             // btnAra
@@ -119,7 +124,7 @@
             this.btnAra.BackColor = System.Drawing.Color.Yellow;
             this.btnAra.Location = new System.Drawing.Point(259, 12);
             this.btnAra.Name = "btnAra";
-            this.btnAra.Size = new System.Drawing.Size(122, 80);
+            this.btnAra.Size = new System.Drawing.Size(122, 29);
             this.btnAra.TabIndex = 4;
             this.btnAra.Text = "Ara";
             this.btnAra.UseVisualStyleBackColor = false;
@@ -135,9 +140,9 @@
             // 
             this.btnSil.BackColor = System.Drawing.Color.Red;
             this.btnSil.ForeColor = System.Drawing.Color.White;
-            this.btnSil.Location = new System.Drawing.Point(140, 59);
+            this.btnSil.Location = new System.Drawing.Point(18, 742);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(111, 33);
+            this.btnSil.Size = new System.Drawing.Size(111, 40);
             this.btnSil.TabIndex = 2;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = false;
@@ -145,20 +150,29 @@
             // btnEkle
             // 
             this.btnEkle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEkle.Location = new System.Drawing.Point(11, 59);
+            this.btnEkle.Location = new System.Drawing.Point(348, 742);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(111, 33);
+            this.btnEkle.Size = new System.Drawing.Size(111, 40);
             this.btnEkle.TabIndex = 0;
             this.btnEkle.Text = "Ekle / Güncelle";
             this.btnEkle.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnGrupCikar);
+            this.groupBox2.Controls.Add(this.btnEpostaCikar);
+            this.groupBox2.Controls.Add(this.btnEpostaEkle);
+            this.groupBox2.Controls.Add(this.btnGrupEkle);
+            this.groupBox2.Controls.Add(this.btnTelefonCikar);
+            this.groupBox2.Controls.Add(this.btnTelefonEkle);
+            this.groupBox2.Controls.Add(this.cmbGrup);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.btnTemizle);
             this.groupBox2.Controls.Add(this.lvEpostalar);
             this.groupBox2.Controls.Add(this.lvTelefonlar);
+            this.groupBox2.Controls.Add(this.btnSil);
             this.groupBox2.Controls.Add(this.pbProfil);
-            this.groupBox2.Controls.Add(this.txtGrup);
-            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.btnEkle);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtIsyeri);
@@ -173,17 +187,103 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(395, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(417, 730);
+            this.groupBox2.Size = new System.Drawing.Size(471, 806);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kişi Detayları";
             // 
+            // btnGrupCikar
+            // 
+            this.btnGrupCikar.BackColor = System.Drawing.Color.Silver;
+            this.btnGrupCikar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGrupCikar.Location = new System.Drawing.Point(405, 210);
+            this.btnGrupCikar.Name = "btnGrupCikar";
+            this.btnGrupCikar.Size = new System.Drawing.Size(55, 25);
+            this.btnGrupCikar.TabIndex = 26;
+            this.btnGrupCikar.Text = "-";
+            this.btnGrupCikar.UseVisualStyleBackColor = false;
+            // 
+            // btnGrupEkle
+            // 
+            this.btnGrupEkle.BackColor = System.Drawing.Color.Silver;
+            this.btnGrupEkle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGrupEkle.Location = new System.Drawing.Point(348, 210);
+            this.btnGrupEkle.Name = "btnGrupEkle";
+            this.btnGrupEkle.Size = new System.Drawing.Size(55, 25);
+            this.btnGrupEkle.TabIndex = 25;
+            this.btnGrupEkle.Text = "+";
+            this.btnGrupEkle.UseVisualStyleBackColor = false;
+            // 
+            // cmbGrup
+            // 
+            this.cmbGrup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGrup.FormattingEnabled = true;
+            this.cmbGrup.Location = new System.Drawing.Point(21, 211);
+            this.cmbGrup.Name = "cmbGrup";
+            this.cmbGrup.Size = new System.Drawing.Size(321, 23);
+            this.cmbGrup.TabIndex = 24;
+            // 
+            // btnEpostaCikar
+            // 
+            this.btnEpostaCikar.BackColor = System.Drawing.Color.Silver;
+            this.btnEpostaCikar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEpostaCikar.Location = new System.Drawing.Point(408, 462);
+            this.btnEpostaCikar.Name = "btnEpostaCikar";
+            this.btnEpostaCikar.Size = new System.Drawing.Size(55, 40);
+            this.btnEpostaCikar.TabIndex = 23;
+            this.btnEpostaCikar.Text = "-";
+            this.btnEpostaCikar.UseVisualStyleBackColor = false;
+            // 
+            // btnEpostaEkle
+            // 
+            this.btnEpostaEkle.BackColor = System.Drawing.Color.Silver;
+            this.btnEpostaEkle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEpostaEkle.Location = new System.Drawing.Point(408, 405);
+            this.btnEpostaEkle.Name = "btnEpostaEkle";
+            this.btnEpostaEkle.Size = new System.Drawing.Size(55, 40);
+            this.btnEpostaEkle.TabIndex = 22;
+            this.btnEpostaEkle.Text = "+";
+            this.btnEpostaEkle.UseVisualStyleBackColor = false;
+            // 
+            // btnTelefonCikar
+            // 
+            this.btnTelefonCikar.BackColor = System.Drawing.Color.Silver;
+            this.btnTelefonCikar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTelefonCikar.Location = new System.Drawing.Point(408, 326);
+            this.btnTelefonCikar.Name = "btnTelefonCikar";
+            this.btnTelefonCikar.Size = new System.Drawing.Size(55, 40);
+            this.btnTelefonCikar.TabIndex = 21;
+            this.btnTelefonCikar.Text = "-";
+            this.btnTelefonCikar.UseVisualStyleBackColor = false;
+            // 
+            // btnTelefonEkle
+            // 
+            this.btnTelefonEkle.BackColor = System.Drawing.Color.Silver;
+            this.btnTelefonEkle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTelefonEkle.Location = new System.Drawing.Point(408, 269);
+            this.btnTelefonEkle.Name = "btnTelefonEkle";
+            this.btnTelefonEkle.Size = new System.Drawing.Size(55, 40);
+            this.btnTelefonEkle.TabIndex = 20;
+            this.btnTelefonEkle.Text = "+";
+            this.btnTelefonEkle.UseVisualStyleBackColor = false;
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.BackColor = System.Drawing.Color.Yellow;
+            this.btnTemizle.Location = new System.Drawing.Point(183, 742);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(111, 40);
+            this.btnTemizle.TabIndex = 19;
+            this.btnTemizle.Text = "Temizle";
+            this.btnTemizle.UseVisualStyleBackColor = false;
+            // 
             // lvEpostalar
             // 
+            this.lvEpostalar.CheckBoxes = true;
             this.lvEpostalar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.lvEpostalar.Location = new System.Drawing.Point(18, 346);
+            this.lvEpostalar.Location = new System.Drawing.Point(18, 405);
             this.lvEpostalar.Name = "lvEpostalar";
             this.lvEpostalar.Size = new System.Drawing.Size(384, 97);
             this.lvEpostalar.TabIndex = 18;
@@ -202,36 +302,40 @@
             // 
             // lvTelefonlar
             // 
+            this.lvTelefonlar.CheckBoxes = true;
             this.lvTelefonlar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4});
-            this.lvTelefonlar.Location = new System.Drawing.Point(18, 211);
+            this.lvTelefonlar.Location = new System.Drawing.Point(18, 269);
             this.lvTelefonlar.Name = "lvTelefonlar";
             this.lvTelefonlar.Size = new System.Drawing.Size(384, 97);
             this.lvTelefonlar.TabIndex = 17;
             this.lvTelefonlar.UseCompatibleStateImageBehavior = false;
             this.lvTelefonlar.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Tür";
+            this.columnHeader3.Width = 80;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Telefon";
+            this.columnHeader4.Width = 400;
+            // 
             // pbProfil
             // 
-            this.pbProfil.Location = new System.Drawing.Point(301, 19);
+            this.pbProfil.Location = new System.Drawing.Point(358, 19);
             this.pbProfil.Name = "pbProfil";
             this.pbProfil.Size = new System.Drawing.Size(101, 109);
             this.pbProfil.TabIndex = 16;
             this.pbProfil.TabStop = false;
             // 
-            // txtGrup
-            // 
-            this.txtGrup.Location = new System.Drawing.Point(18, 701);
-            this.txtGrup.Name = "txtGrup";
-            this.txtGrup.Size = new System.Drawing.Size(384, 23);
-            this.txtGrup.TabIndex = 15;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(18, 677);
+            this.label3.Location = new System.Drawing.Point(21, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 21);
             this.label3.TabIndex = 14;
@@ -241,7 +345,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(18, 322);
+            this.label2.Location = new System.Drawing.Point(18, 381);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 11;
@@ -251,7 +355,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(18, 187);
+            this.label1.Location = new System.Drawing.Point(18, 245);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 9;
@@ -259,38 +363,39 @@
             // 
             // txtIsyeri
             // 
-            this.txtIsyeri.Location = new System.Drawing.Point(18, 638);
+            this.txtIsyeri.Location = new System.Drawing.Point(18, 703);
             this.txtIsyeri.Name = "txtIsyeri";
-            this.txtIsyeri.Size = new System.Drawing.Size(384, 23);
+            this.txtIsyeri.Size = new System.Drawing.Size(442, 23);
             this.txtIsyeri.TabIndex = 8;
             // 
             // txtAdres
             // 
-            this.txtAdres.Location = new System.Drawing.Point(18, 533);
+            this.txtAdres.Location = new System.Drawing.Point(18, 598);
             this.txtAdres.Multiline = true;
             this.txtAdres.Name = "txtAdres";
-            this.txtAdres.Size = new System.Drawing.Size(384, 66);
+            this.txtAdres.Size = new System.Drawing.Size(442, 66);
             this.txtAdres.TabIndex = 7;
             // 
             // txtUnvan
             // 
-            this.txtUnvan.Location = new System.Drawing.Point(18, 483);
+            this.txtUnvan.Location = new System.Drawing.Point(18, 540);
             this.txtUnvan.Name = "txtUnvan";
-            this.txtUnvan.Size = new System.Drawing.Size(384, 23);
+            this.txtUnvan.Size = new System.Drawing.Size(442, 23);
             this.txtUnvan.TabIndex = 6;
             // 
             // txtAdiSoyadi
             // 
-            this.txtAdiSoyadi.Location = new System.Drawing.Point(18, 144);
+            this.txtAdiSoyadi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAdiSoyadi.Location = new System.Drawing.Point(21, 144);
             this.txtAdiSoyadi.Name = "txtAdiSoyadi";
-            this.txtAdiSoyadi.Size = new System.Drawing.Size(384, 23);
+            this.txtAdiSoyadi.Size = new System.Drawing.Size(438, 29);
             this.txtAdiSoyadi.TabIndex = 5;
             // 
             // lblUnvan
             // 
             this.lblUnvan.AutoSize = true;
             this.lblUnvan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUnvan.Location = new System.Drawing.Point(18, 459);
+            this.lblUnvan.Location = new System.Drawing.Point(18, 516);
             this.lblUnvan.Name = "lblUnvan";
             this.lblUnvan.Size = new System.Drawing.Size(55, 21);
             this.lblUnvan.TabIndex = 4;
@@ -300,7 +405,7 @@
             // 
             this.lblAdres.AutoSize = true;
             this.lblAdres.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAdres.Location = new System.Drawing.Point(18, 509);
+            this.lblAdres.Location = new System.Drawing.Point(18, 574);
             this.lblAdres.Name = "lblAdres";
             this.lblAdres.Size = new System.Drawing.Size(50, 21);
             this.lblAdres.TabIndex = 3;
@@ -310,7 +415,7 @@
             // 
             this.lblIsyeri.AutoSize = true;
             this.lblIsyeri.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIsyeri.Location = new System.Drawing.Point(18, 614);
+            this.lblIsyeri.Location = new System.Drawing.Point(18, 679);
             this.lblIsyeri.Name = "lblIsyeri";
             this.lblIsyeri.Size = new System.Drawing.Size(47, 21);
             this.lblIsyeri.TabIndex = 2;
@@ -329,28 +434,18 @@
             // 
             this.lblAdiSoyadi.AutoSize = true;
             this.lblAdiSoyadi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAdiSoyadi.Location = new System.Drawing.Point(18, 117);
+            this.lblAdiSoyadi.Location = new System.Drawing.Point(21, 117);
             this.lblAdiSoyadi.Name = "lblAdiSoyadi";
             this.lblAdiSoyadi.Size = new System.Drawing.Size(84, 21);
             this.lblAdiSoyadi.TabIndex = 0;
             this.lblAdiSoyadi.Text = "Adı Soyadı";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Tür";
-            this.columnHeader3.Width = 80;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Telefon";
-            this.columnHeader4.Width = 400;
             // 
             // Form1
             // 
             this.AcceptButton = this.btnAra;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 730);
+            this.ClientSize = new System.Drawing.Size(866, 806);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -388,7 +483,6 @@
         private ColumnHeader columnHeader2;
         private ListView lvTelefonlar;
         private PictureBox pbProfil;
-        private TextBox txtGrup;
         private Label label3;
         private Label label2;
         private Label label1;
@@ -398,5 +492,13 @@
         private TextBox txtAdiSoyadi;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
+        private Button btnTelefonEkle;
+        private Button btnTemizle;
+        private Button btnGrupCikar;
+        private Button btnGrupEkle;
+        private ComboBox cmbGrup;
+        private Button btnEpostaCikar;
+        private Button btnEpostaEkle;
+        private Button btnTelefonCikar;
     }
 }
