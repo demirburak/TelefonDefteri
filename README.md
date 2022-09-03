@@ -1,1 +1,3 @@
 # TelefonDefteri
+
+Eğitim amaçlıdır. 
