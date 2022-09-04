@@ -6,5 +6,35 @@ namespace TelefonDefteri
         {
             InitializeComponent();
         }
+
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
+
+        }
+
+        private void Temizle()
+        {
+            /* temizlik kodlarý yazýlýr
+             *   
+             *   
+             *   
+             */
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+
+            
+
+
+            Temizle();
+        }
+
+        private void btnEkleGuncelle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -23,4 +23,10 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataAccess\" />
+    <Folder Include="Business\" />
+    <Folder Include="Shared\" />
+  </ItemGroup>
+
 </Project>

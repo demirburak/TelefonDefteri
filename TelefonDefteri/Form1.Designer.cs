@@ -35,15 +35,16 @@
             this.btnAra = new System.Windows.Forms.Button();
             this.txtAra = new System.Windows.Forms.TextBox();
             this.btnSil = new System.Windows.Forms.Button();
-            this.btnEkle = new System.Windows.Forms.Button();
+            this.btnEkleGuncelle = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnGrupCikar = new System.Windows.Forms.Button();
-            this.btnGrupEkle = new System.Windows.Forms.Button();
-            this.cmbGrup = new System.Windows.Forms.ComboBox();
             this.btnEpostaCikar = new System.Windows.Forms.Button();
             this.btnEpostaEkle = new System.Windows.Forms.Button();
+            this.btnGrupEkle = new System.Windows.Forms.Button();
             this.btnTelefonCikar = new System.Windows.Forms.Button();
             this.btnTelefonEkle = new System.Windows.Forms.Button();
+            this.cmbGrup = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnTemizle = new System.Windows.Forms.Button();
             this.lvEpostalar = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -52,7 +53,6 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.pbProfil = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIsyeri = new System.Windows.Forms.TextBox();
@@ -146,16 +146,18 @@
             this.btnSil.TabIndex = 2;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = false;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
-            // btnEkle
+            // btnEkleGuncelle
             // 
-            this.btnEkle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEkle.Location = new System.Drawing.Point(348, 742);
-            this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(111, 40);
-            this.btnEkle.TabIndex = 0;
-            this.btnEkle.Text = "Ekle / Güncelle";
-            this.btnEkle.UseVisualStyleBackColor = false;
+            this.btnEkleGuncelle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEkleGuncelle.Location = new System.Drawing.Point(348, 742);
+            this.btnEkleGuncelle.Name = "btnEkleGuncelle";
+            this.btnEkleGuncelle.Size = new System.Drawing.Size(111, 40);
+            this.btnEkleGuncelle.TabIndex = 0;
+            this.btnEkleGuncelle.Text = "Ekle / Güncelle";
+            this.btnEkleGuncelle.UseVisualStyleBackColor = false;
+            this.btnEkleGuncelle.Click += new System.EventHandler(this.btnEkleGuncelle_Click);
             // 
             // groupBox2
             // 
@@ -172,7 +174,7 @@
             this.groupBox2.Controls.Add(this.lvTelefonlar);
             this.groupBox2.Controls.Add(this.btnSil);
             this.groupBox2.Controls.Add(this.pbProfil);
-            this.groupBox2.Controls.Add(this.btnEkle);
+            this.groupBox2.Controls.Add(this.btnEkleGuncelle);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtIsyeri);
@@ -203,26 +205,6 @@
             this.btnGrupCikar.Text = "-";
             this.btnGrupCikar.UseVisualStyleBackColor = false;
             // 
-            // btnGrupEkle
-            // 
-            this.btnGrupEkle.BackColor = System.Drawing.Color.Silver;
-            this.btnGrupEkle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnGrupEkle.Location = new System.Drawing.Point(348, 210);
-            this.btnGrupEkle.Name = "btnGrupEkle";
-            this.btnGrupEkle.Size = new System.Drawing.Size(55, 25);
-            this.btnGrupEkle.TabIndex = 25;
-            this.btnGrupEkle.Text = "+";
-            this.btnGrupEkle.UseVisualStyleBackColor = false;
-            // 
-            // cmbGrup
-            // 
-            this.cmbGrup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGrup.FormattingEnabled = true;
-            this.cmbGrup.Location = new System.Drawing.Point(21, 211);
-            this.cmbGrup.Name = "cmbGrup";
-            this.cmbGrup.Size = new System.Drawing.Size(321, 23);
-            this.cmbGrup.TabIndex = 24;
-            // 
             // btnEpostaCikar
             // 
             this.btnEpostaCikar.BackColor = System.Drawing.Color.Silver;
@@ -244,6 +226,17 @@
             this.btnEpostaEkle.TabIndex = 22;
             this.btnEpostaEkle.Text = "+";
             this.btnEpostaEkle.UseVisualStyleBackColor = false;
+            // 
+            // btnGrupEkle
+            // 
+            this.btnGrupEkle.BackColor = System.Drawing.Color.Silver;
+            this.btnGrupEkle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGrupEkle.Location = new System.Drawing.Point(348, 210);
+            this.btnGrupEkle.Name = "btnGrupEkle";
+            this.btnGrupEkle.Size = new System.Drawing.Size(55, 25);
+            this.btnGrupEkle.TabIndex = 25;
+            this.btnGrupEkle.Text = "+";
+            this.btnGrupEkle.UseVisualStyleBackColor = false;
             // 
             // btnTelefonCikar
             // 
@@ -267,6 +260,25 @@
             this.btnTelefonEkle.Text = "+";
             this.btnTelefonEkle.UseVisualStyleBackColor = false;
             // 
+            // cmbGrup
+            // 
+            this.cmbGrup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGrup.FormattingEnabled = true;
+            this.cmbGrup.Location = new System.Drawing.Point(21, 211);
+            this.cmbGrup.Name = "cmbGrup";
+            this.cmbGrup.Size = new System.Drawing.Size(321, 23);
+            this.cmbGrup.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(21, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 21);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Grup";
+            // 
             // btnTemizle
             // 
             this.btnTemizle.BackColor = System.Drawing.Color.Yellow;
@@ -276,6 +288,7 @@
             this.btnTemizle.TabIndex = 19;
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.UseVisualStyleBackColor = false;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // lvEpostalar
             // 
@@ -330,16 +343,6 @@
             this.pbProfil.Size = new System.Drawing.Size(101, 109);
             this.pbProfil.TabIndex = 16;
             this.pbProfil.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(21, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 21);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Grup";
             // 
             // label2
             // 
@@ -471,7 +474,7 @@
         private Button btnAra;
         private TextBox txtAra;
         private Button btnSil;
-        private Button btnEkle;
+        private Button btnEkleGuncelle;
         private GroupBox groupBox2;
         private Label lblid;
         private Label lblAdiSoyadi;
