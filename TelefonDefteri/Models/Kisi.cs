@@ -18,6 +18,7 @@
 
         public string Aciklama { get; set; }
 
+
     }
 
 
