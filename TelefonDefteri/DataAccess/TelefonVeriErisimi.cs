@@ -2,7 +2,7 @@
 
 namespace TelefonDefteri.DataAccess
 {
-    public class TelefonYoneticisi 
+    public class TelefonVeriErisimi 
     {
       
     }

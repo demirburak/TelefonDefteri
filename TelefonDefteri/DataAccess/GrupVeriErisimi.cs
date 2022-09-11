@@ -1,6 +1,6 @@
 ﻿namespace TelefonDefteri.DataAccess
 {
-    public class EpostaYoneticisi
+    public class GrupVeriErisimi
     {
 
     }
