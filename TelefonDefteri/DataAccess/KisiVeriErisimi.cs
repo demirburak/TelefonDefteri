@@ -77,12 +77,21 @@ namespace TelefonDefteri.DataAccess
         {
             Kisi kisi = new();
 
+            string sorgu = $" SELECT * FROM Kisiler WHERE KisiId = {kisiId} ";
+
             return kisi;
         }
 
         public List<Kisi> KisiListesiGetir(string aranan)
         {
             List<Kisi> kisiler = new();
+
+            string sorgu = $"SELECT * FROM Kisiler WHERE " +
+                $" AdiSoyadi LIKE '%{aranan}%' " +
+                $" OR Adres LIKE '%{aranan}%' " +
+                $" OR Isyeri LIKE '%{aranan}%' " +
+                $" OR Unvan LIKE '%{aranan}%' " +
+                $" OR Aciklama LIKE '%{aranan}%' ";
 
             return kisiler;
         }

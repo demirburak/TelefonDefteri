@@ -64,6 +64,8 @@
             this.lblIsyeri = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lblAdiSoyadi = new System.Windows.Forms.Label();
+            this.txtAciklama = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListe)).BeginInit();
@@ -161,6 +163,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtAciklama);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.btnGrupCikar);
             this.groupBox2.Controls.Add(this.btnEpostaCikar);
             this.groupBox2.Controls.Add(this.btnEpostaEkle);
@@ -189,7 +193,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(395, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(471, 806);
+            this.groupBox2.Size = new System.Drawing.Size(486, 806);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kişi Detayları";
@@ -366,9 +370,9 @@
             // 
             // txtIsyeri
             // 
-            this.txtIsyeri.Location = new System.Drawing.Point(18, 703);
+            this.txtIsyeri.Location = new System.Drawing.Point(249, 540);
             this.txtIsyeri.Name = "txtIsyeri";
-            this.txtIsyeri.Size = new System.Drawing.Size(442, 23);
+            this.txtIsyeri.Size = new System.Drawing.Size(225, 23);
             this.txtIsyeri.TabIndex = 8;
             // 
             // txtAdres
@@ -383,7 +387,7 @@
             // 
             this.txtUnvan.Location = new System.Drawing.Point(18, 540);
             this.txtUnvan.Name = "txtUnvan";
-            this.txtUnvan.Size = new System.Drawing.Size(442, 23);
+            this.txtUnvan.Size = new System.Drawing.Size(225, 23);
             this.txtUnvan.TabIndex = 6;
             // 
             // txtAdiSoyadi
@@ -418,7 +422,7 @@
             // 
             this.lblIsyeri.AutoSize = true;
             this.lblIsyeri.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIsyeri.Location = new System.Drawing.Point(18, 679);
+            this.lblIsyeri.Location = new System.Drawing.Point(249, 516);
             this.lblIsyeri.Name = "lblIsyeri";
             this.lblIsyeri.Size = new System.Drawing.Size(47, 21);
             this.lblIsyeri.TabIndex = 2;
@@ -443,12 +447,29 @@
             this.lblAdiSoyadi.TabIndex = 0;
             this.lblAdiSoyadi.Text = "Adı Soyadı";
             // 
+            // txtAciklama
+            // 
+            this.txtAciklama.Location = new System.Drawing.Point(21, 703);
+            this.txtAciklama.Name = "txtAciklama";
+            this.txtAciklama.Size = new System.Drawing.Size(453, 23);
+            this.txtAciklama.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(18, 679);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 21);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Açıklama";
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnAra;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 806);
+            this.ClientSize = new System.Drawing.Size(881, 806);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -503,5 +524,7 @@
         private Button btnEpostaCikar;
         private Button btnEpostaEkle;
         private Button btnTelefonCikar;
+        private TextBox txtAciklama;
+        private Label label4;
     }
 }

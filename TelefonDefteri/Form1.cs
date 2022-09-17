@@ -1,3 +1,6 @@
+using System.Data.SqlClient;
+using TelefonDefteri.DataAccess;
+
 namespace TelefonDefteri
 {
     public partial class Form1 : Form
@@ -34,7 +37,10 @@ namespace TelefonDefteri
 
         private void btnEkleGuncelle_Click(object sender, EventArgs e)
         {
-
+           
+           
         }
+
+        
     }
 }
