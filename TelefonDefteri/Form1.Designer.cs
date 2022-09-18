@@ -37,6 +37,8 @@
             this.btnSil = new System.Windows.Forms.Button();
             this.btnEkleGuncelle = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtAciklama = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnGrupCikar = new System.Windows.Forms.Button();
             this.btnEpostaCikar = new System.Windows.Forms.Button();
             this.btnEpostaEkle = new System.Windows.Forms.Button();
@@ -64,8 +66,6 @@
             this.lblIsyeri = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lblAdiSoyadi = new System.Windows.Forms.Label();
-            this.txtAciklama = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListe)).BeginInit();
@@ -130,6 +130,7 @@
             this.btnAra.TabIndex = 4;
             this.btnAra.Text = "Ara";
             this.btnAra.UseVisualStyleBackColor = false;
+            this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
             // 
             // txtAra
             // 
@@ -197,6 +198,23 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kişi Detayları";
+            // 
+            // txtAciklama
+            // 
+            this.txtAciklama.Location = new System.Drawing.Point(21, 703);
+            this.txtAciklama.Name = "txtAciklama";
+            this.txtAciklama.Size = new System.Drawing.Size(453, 23);
+            this.txtAciklama.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(18, 679);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 21);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Açıklama";
             // 
             // btnGrupCikar
             // 
@@ -446,23 +464,6 @@
             this.lblAdiSoyadi.Size = new System.Drawing.Size(84, 21);
             this.lblAdiSoyadi.TabIndex = 0;
             this.lblAdiSoyadi.Text = "Adı Soyadı";
-            // 
-            // txtAciklama
-            // 
-            this.txtAciklama.Location = new System.Drawing.Point(21, 703);
-            this.txtAciklama.Name = "txtAciklama";
-            this.txtAciklama.Size = new System.Drawing.Size(453, 23);
-            this.txtAciklama.TabIndex = 28;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(18, 679);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 21);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Açıklama";
             // 
             // Form1
             // 

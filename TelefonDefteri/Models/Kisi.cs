@@ -1,4 +1,6 @@
-﻿namespace TelefonDefteri.Models
+﻿using System.Data;
+
+namespace TelefonDefteri.Models
 {
     public class Kisi
     {
@@ -8,7 +10,7 @@
 
         public Image ProfilResmi { get; set; }
 
-        public string Adres { get; set; }
+        public string? Adres { get; set; }
 
         public string Isyeri { get; set; }
 
@@ -17,6 +19,9 @@
         public int GrupId { get; set; }
 
         public string Aciklama { get; set; }
+
+
+       
 
 
     }

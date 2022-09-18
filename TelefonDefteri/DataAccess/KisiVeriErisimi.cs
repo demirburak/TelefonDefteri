@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using TelefonDefteri.Models;
@@ -70,6 +72,8 @@ namespace TelefonDefteri.DataAccess
                 sonuc = "Silme işlemi başarısız.";
             }
 
+            Kisi eskiKisi = KisiGetir(5);
+
             return sonuc;
         }
 
@@ -78,6 +82,15 @@ namespace TelefonDefteri.DataAccess
             Kisi kisi = new();
 
             string sorgu = $" SELECT * FROM Kisiler WHERE KisiId = {kisiId} ";
+
+            VtBaglantisi vtBaglantisi = new();
+            DataTable dt = vtBaglantisi.VeriGetir(sorgu);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                kisi = DonusturDataRowdanKisiye(dr);
+            }
 
             return kisi;
         }
@@ -93,9 +106,35 @@ namespace TelefonDefteri.DataAccess
                 $" OR Unvan LIKE '%{aranan}%' " +
                 $" OR Aciklama LIKE '%{aranan}%' ";
 
+            VtBaglantisi vtBaglantisi = new();
+            DataTable dt = vtBaglantisi.VeriGetir(sorgu);
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Kisi kisi = DonusturDataRowdanKisiye(dr);
+                    kisiler.Add(kisi);
+                }
+            }
+
             return kisiler;
         }
 
+        private Kisi DonusturDataRowdanKisiye(DataRow dr)
+        {
+            Kisi kisi = new Kisi();
+
+            kisi.KisiId = Convert.ToInt32(dr["KisiId"].ToString());
+            kisi.GrupId = Convert.ToInt32(dr["GrupId"].ToString());
+            kisi.AdiSoyadi = dr["AdiSoyadi"].ToString();
+            kisi.Adres = (dr.IsNull("Adres")) ? "" : dr["Adres"].ToString();
+            kisi.Isyeri = (dr.IsNull("Isyeri")) ? "" : dr["Isyeri"].ToString();
+            kisi.Unvan = (dr.IsNull("Unvan")) ? "" : dr["Unvan"].ToString();
+            kisi.Aciklama = (dr.IsNull("Aciklama")) ? "" : dr["Aciklama"].ToString();
+
+            return kisi;
+        }
 
     }
 }

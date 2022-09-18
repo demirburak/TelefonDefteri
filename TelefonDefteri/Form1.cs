@@ -1,5 +1,7 @@
 using System.Data.SqlClient;
 using TelefonDefteri.DataAccess;
+using TelefonDefteri.Models;
+using TelefonDefteri.DataAccess;
 
 namespace TelefonDefteri
 {
@@ -37,10 +39,13 @@ namespace TelefonDefteri
 
         private void btnEkleGuncelle_Click(object sender, EventArgs e)
         {
-           
+          
            
         }
 
-        
+        private void btnAra_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
