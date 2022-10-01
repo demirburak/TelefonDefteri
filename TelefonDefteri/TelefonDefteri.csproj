@@ -24,7 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Business\" />
+    <Folder Include="Business\EpostaIsKatmani\" />
+    <Folder Include="Business\GrupIsKatmani\" />
+    <Folder Include="Business\TelefonIsKatmani\" />
     <Folder Include="Shared\" />
   </ItemGroup>
 
