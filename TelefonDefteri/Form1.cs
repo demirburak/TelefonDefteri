@@ -3,6 +3,7 @@ using TelefonDefteri.DataAccess;
 using TelefonDefteri.Models;
 using TelefonDefteri.DataAccess;
 using TelefonDefteri.Business.KisiIsKatmani;
+using TelefonDefteri.Business.GrupIsKatmani;
 
 namespace TelefonDefteri
 {
@@ -13,6 +14,18 @@ namespace TelefonDefteri
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            GruplariYukle();
+        }
+
+        private void GruplariYukle()
+        {
+            GrupYoneticisi grupYoneticisi = new GrupYoneticisi();
+            cmbGrup.DataSource = grupYoneticisi.GrupListesiGetir();
+            cmbGrup.DisplayMember = "GrupAdi";
+            cmbGrup.ValueMember = "GrupId";
+        }
 
         private void btnTemizle_Click(object sender, EventArgs e)
         {
@@ -56,5 +69,7 @@ namespace TelefonDefteri
         {
 
         }
+
+       
     }
 }
