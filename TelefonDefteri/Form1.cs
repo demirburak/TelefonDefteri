@@ -70,6 +70,22 @@ namespace TelefonDefteri
 
         }
 
-       
+        private void btnGrupEkle_Click(object sender, EventArgs e)
+        {
+            EklemeFormu eklemeFormu = new EklemeFormu("Grup");
+            eklemeFormu.ShowDialog();
+        }
+
+        private void btnTelefonEkle_Click(object sender, EventArgs e)
+        {
+            EklemeFormu eklemeFormu = new EklemeFormu("Telefon");
+            eklemeFormu.ShowDialog();
+        }
+
+        private void btnEpostaEkle_Click(object sender, EventArgs e)
+        {
+            EklemeFormu eklemeFormu = new EklemeFormu("Eposta");
+            eklemeFormu.ShowDialog();
+        }
     }
 }

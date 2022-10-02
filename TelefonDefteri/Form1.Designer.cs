@@ -248,6 +248,7 @@
             this.btnEpostaEkle.TabIndex = 22;
             this.btnEpostaEkle.Text = "+";
             this.btnEpostaEkle.UseVisualStyleBackColor = false;
+            this.btnEpostaEkle.Click += new System.EventHandler(this.btnEpostaEkle_Click);
             // 
             // btnGrupEkle
             // 
@@ -259,6 +260,7 @@
             this.btnGrupEkle.TabIndex = 25;
             this.btnGrupEkle.Text = "+";
             this.btnGrupEkle.UseVisualStyleBackColor = false;
+            this.btnGrupEkle.Click += new System.EventHandler(this.btnGrupEkle_Click);
             // 
             // btnTelefonCikar
             // 
@@ -281,6 +283,7 @@
             this.btnTelefonEkle.TabIndex = 20;
             this.btnTelefonEkle.Text = "+";
             this.btnTelefonEkle.UseVisualStyleBackColor = false;
+            this.btnTelefonEkle.Click += new System.EventHandler(this.btnTelefonEkle_Click);
             // 
             // cmbGrup
             // 

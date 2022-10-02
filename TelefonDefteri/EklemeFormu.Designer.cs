@@ -94,6 +94,7 @@
             this.Name = "EklemeFormu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ekleme Formu";
+            this.Load += new System.EventHandler(this.EklemeFormu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

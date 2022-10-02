@@ -12,9 +12,56 @@ namespace TelefonDefteri
 {
     public partial class EklemeFormu : Form
     {
-        public EklemeFormu()
+        string PencereTuru = "";
+
+        public EklemeFormu(string pencereTuru)
         {
             InitializeComponent();
+            PencereTuru = pencereTuru;
         }
+
+        private void EklemeFormu_Load(object sender, EventArgs e)
+        {
+            //Pencere kontrolü
+            string kontrolSonucu = PencereTuruKontrolEt();
+            if (!string.IsNullOrEmpty(kontrolSonucu))
+            {
+                MessageBox.Show(kontrolSonucu);
+                this.Close();
+            }
+
+            //Ekran Düzelt
+            EkranBilgileriniDuzenle();
+        }
+
+        private string PencereTuruKontrolEt()
+        {
+            if (PencereTuru == "Grup" || PencereTuru == "Eposta" || PencereTuru == "Telefon")
+            {
+                return "";
+            }
+            else
+            {
+                return "Hatalı pencere türü yazdınız.";
+            }
+        }
+
+        private void EkranBilgileriniDuzenle()
+        {
+            if (PencereTuru == "Grup")
+            {
+                lblTur.Text = "Grup Adı";
+                lblEpostaTelefonGrup.Text = "Açıklama";
+            }
+            else if (PencereTuru == "Eposta")
+            {
+                lblEpostaTelefonGrup.Text = "Eposta Adresi";
+            }
+            else if (PencereTuru == "Telefon")
+            {
+                lblEpostaTelefonGrup.Text = "Telefon Numarası";
+            }
+        }
+
     }
 }
