@@ -27,7 +27,7 @@ namespace TelefonDefteri.Business.KisiIsKatmani
             kisi.Aciklama = aciklama;
             kisi.Adres = adres;
             kisi.GrupId = grupId;
-            kisi.Isyeri = isyeri;
+            kisi.Isyeri = isyeri.ToUpper();
             kisi.Unvan = unvan;
 
             //Parametrelere kurallar uygulanacak.

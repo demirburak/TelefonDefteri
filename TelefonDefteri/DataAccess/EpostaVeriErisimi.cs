@@ -11,9 +11,9 @@ namespace TelefonDefteri.DataAccess
             string sonuc = "";
 
             string sorgu = "INSERT INTO Epostalar" +
-               "(EpostaId,EpostaAdresi,Tur,KisiId)" +
+               "(EpostaAdresi,Tur,KisiId)" +
                " VALUES " +
-               $"({eposta.EpostaId},'{eposta.EpostaAdresi}','{eposta.Tur}',{eposta.KisiId})";
+               $"('{eposta.EpostaAdresi}','{eposta.Tur}',{eposta.KisiId})";
 
 
             VtBaglantisi vtBaglantisi = new();
@@ -81,7 +81,8 @@ namespace TelefonDefteri.DataAccess
 
             string sorgu = "SELECT * FROM Epostalar" +
                        $" WHERE EpostaAdresi LIKE '%{aranan}%' " +
-                       $" OR Tur LIKE '%{aranan}%' ";
+                       $" OR Tur LIKE '%{aranan}%' " +
+                       $" ORDER BY EpostaAdresi ";
 
 
 

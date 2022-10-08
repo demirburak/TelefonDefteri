@@ -19,7 +19,7 @@ namespace TelefonDefteri.Business.KisiIsKatmani
             if (unvan.Length > 50) sonuc = "Ünvan 50 karakterden büyük olamaz.";
             if (grupId > 0) sonuc = "Grup seçimi yapılmamış.";
 
-            if (!string.IsNullOrEmpty(isyeri)) isyeri = isyeri.ToUpper();
+            
 
             return sonuc;
         }

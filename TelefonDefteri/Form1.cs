@@ -74,6 +74,7 @@ namespace TelefonDefteri
         {
             EklemeFormu eklemeFormu = new EklemeFormu("Grup");
             eklemeFormu.ShowDialog();
+            GruplariYukle();
         }
 
         private void btnTelefonEkle_Click(object sender, EventArgs e)
@@ -86,6 +87,16 @@ namespace TelefonDefteri
         {
             EklemeFormu eklemeFormu = new EklemeFormu("Eposta");
             eklemeFormu.ShowDialog();
+        }
+
+        private void btnGrupCikar_Click(object sender, EventArgs e)
+        {
+            int grupId = (cmbGrup.SelectedItem != null) ? (int)cmbGrup.SelectedValue : 0;
+            GrupYoneticisi grupYoneticisi = new GrupYoneticisi();
+            string sonuc = grupYoneticisi.GrupSil(grupId);
+            MessageBox.Show(sonuc);
+            GruplariYukle();
+
         }
     }
 }

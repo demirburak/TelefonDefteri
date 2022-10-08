@@ -12,9 +12,9 @@ namespace TelefonDefteri.DataAccess
 
 
             string sorgu = "INSERT INTO Gruplar" +
-                "(GrupId,GrupAdi,Aciklama)" +
+                "(GrupAdi,Aciklama)" +
                 " VALUES " +
-                $"({grup.GrupId},'{grup.GrupAdi}','{grup.Aciklama}')";
+                $"('{grup.GrupAdi}','{grup.Aciklama}')";
 
             VtBaglantisi vtBaglantisi = new();
             int etkilenenSatirSayisi = vtBaglantisi.VeriGotur(sorgu);
@@ -82,8 +82,9 @@ namespace TelefonDefteri.DataAccess
 
             string sorgu = "SELECT * FROM Gruplar" +
                        $" WHERE  " +
-                       $" OR GrupAdi LIKE '%{aranan}%' " +
-                       $" OR Aciklama LIKE '%{aranan}%' ";
+                       $" GrupAdi LIKE '%{aranan}%' " +
+                       $" OR Aciklama LIKE '%{aranan}%' " +
+                       $" ORDER BY GrupAdi ";
 
             VtBaglantisi vtBaglantisi = new();
             DataTable dt = vtBaglantisi.VeriGetir(sorgu);

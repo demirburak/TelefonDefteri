@@ -80,6 +80,7 @@
             this.btnEpostaTelefonGrupEkle.TabIndex = 20;
             this.btnEpostaTelefonGrupEkle.Text = "Ekle";
             this.btnEpostaTelefonGrupEkle.UseVisualStyleBackColor = false;
+            this.btnEpostaTelefonGrupEkle.Click += new System.EventHandler(this.btnEpostaTelefonGrupEkle_Click);
             // 
             // EklemeFormu
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelefonDefteri.Business.GrupIsKatmani;
 
 namespace TelefonDefteri
 {
@@ -63,5 +64,12 @@ namespace TelefonDefteri
             }
         }
 
+        private void btnEpostaTelefonGrupEkle_Click(object sender, EventArgs e)
+        {
+            GrupYoneticisi grupYoneticisi = new GrupYoneticisi();
+            string sonuc = grupYoneticisi.GrupKaydet(txtTur.Text, txtEpostaTelefonGrup.Text);
+            MessageBox.Show(sonuc);
+           
+        }
     }
 }

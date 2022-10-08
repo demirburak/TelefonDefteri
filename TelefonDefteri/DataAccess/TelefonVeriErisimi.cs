@@ -11,9 +11,9 @@ namespace TelefonDefteri.DataAccess
             string sonuc = "";
 
             string sorgu = "INSERT INTO Telefonlar" +
-               "(TelefonId,TelefonNumarasi,Tur,KisiID)" +
+               "(TelefonNumarasi,Tur,KisiID)" +
                " VALUES " +
-               $"({telefon.TelefonId},'{telefon.TelefonNumarasi}','{telefon.Tur}',{telefon.KisiId})";
+               $"('{telefon.TelefonNumarasi}','{telefon.Tur}',{telefon.KisiId})";
 
             VtBaglantisi vtBaglantisi = new();
             int etkilenenSatirSayisi = vtBaglantisi.VeriGotur(sorgu);

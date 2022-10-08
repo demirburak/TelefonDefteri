@@ -16,9 +16,9 @@ namespace TelefonDefteri.DataAccess
             string sonuc = "";
 
             string sorgu = "INSERT INTO Kisiler " +
-                " (KisiId,AdiSoyadi,ProfilResmi,Adres,Isyeri,Unvan,GrupId,Aciklama)" +
+                " (AdiSoyadi,ProfilResmi,Adres,Isyeri,Unvan,GrupId,Aciklama)" +
                 " VALUES " +
-               $" ({kisi.KisiId},'{kisi.AdiSoyadi}',null,'{kisi.Adres}','{kisi.Isyeri}','{kisi.Unvan}'," +
+               $" ('{kisi.AdiSoyadi}',null,'{kisi.Adres}','{kisi.Isyeri}','{kisi.Unvan}'," +
                $"  {kisi.GrupId},'{kisi.Aciklama}' ) ";
 
             VtBaglantisi vtBaglantisi = new VtBaglantisi();
@@ -104,7 +104,8 @@ namespace TelefonDefteri.DataAccess
                 $" OR Adres LIKE '%{aranan}%' " +
                 $" OR Isyeri LIKE '%{aranan}%' " +
                 $" OR Unvan LIKE '%{aranan}%' " +
-                $" OR Aciklama LIKE '%{aranan}%' ";
+                $" OR Aciklama LIKE '%{aranan}%' " +
+                $" ORDER BY AdiSoyadi ";
 
             VtBaglantisi vtBaglantisi = new();
             DataTable dt = vtBaglantisi.VeriGetir(sorgu);

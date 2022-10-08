@@ -226,6 +226,7 @@
             this.btnGrupCikar.TabIndex = 26;
             this.btnGrupCikar.Text = "-";
             this.btnGrupCikar.UseVisualStyleBackColor = false;
+            this.btnGrupCikar.Click += new System.EventHandler(this.btnGrupCikar_Click);
             // 
             // btnEpostaCikar
             // 
