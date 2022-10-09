@@ -45,5 +45,13 @@ namespace TelefonDefteri.Business.KisiIsKatmani
             return sonuc;
         }
 
+        
+        public List<Kisi> KisiListesiGetir(string aranan)
+        {
+            KisiVeriErisimi kisiVeriErisimi = new KisiVeriErisimi();
+            List<Kisi> kisiListesi = kisiVeriErisimi.KisiListesiGetir(aranan);
+            return kisiListesi;
+        }
+
     }
 }

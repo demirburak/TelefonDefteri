@@ -99,6 +99,7 @@
             // 
             this.dgvListe.AllowUserToAddRows = false;
             this.dgvListe.AllowUserToDeleteRows = false;
+            this.dgvListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListe.BackgroundColor = System.Drawing.Color.White;
             this.dgvListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListe.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -110,6 +111,7 @@
             this.dgvListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListe.Size = new System.Drawing.Size(389, 723);
             this.dgvListe.TabIndex = 0;
+            this.dgvListe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListe_CellClick);
             // 
             // panel1
             // 

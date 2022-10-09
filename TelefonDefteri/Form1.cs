@@ -17,6 +17,7 @@ namespace TelefonDefteri
         private void Form1_Load(object sender, EventArgs e)
         {
             GruplariYukle();
+            dgvListe.Columns.Add("AdiSoyadi", "Adý Soyadý");
         }
 
         private void GruplariYukle()
@@ -35,11 +36,16 @@ namespace TelefonDefteri
 
         private void Temizle()
         {
-            /* temizlik kodlarý yazýlýr
-             *   
-             *   
-             *   
-             */
+            lblid.Text = "lblid";
+            pbProfil.Image = null;
+            txtAdiSoyadi.Text = "";
+            txtAciklama.Text = "";
+            txtAdres.Text = "";
+            txtIsyeri.Text = "";
+            txtUnvan.Text = "";
+            lvEpostalar.Items.Clear();
+            lvTelefonlar.Items.Clear();
+            if (cmbGrup.Items.Count > 0) cmbGrup.SelectedIndex = 0;
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -63,11 +69,12 @@ namespace TelefonDefteri
 
             MessageBox.Show(sonuc);
 
+            KisiListesiGetir();
         }
 
         private void btnAra_Click(object sender, EventArgs e)
         {
-
+            KisiListesiGetir();
         }
 
         private void btnGrupEkle_Click(object sender, EventArgs e)
@@ -96,7 +103,28 @@ namespace TelefonDefteri
             string sonuc = grupYoneticisi.GrupSil(grupId);
             MessageBox.Show(sonuc);
             GruplariYukle();
+        }
 
+        private void KisiListesiGetir()
+        {
+            KisiYoneticisi kisiYoneticisi = new KisiYoneticisi();
+            List<Kisi> kisiListesi = kisiYoneticisi.KisiListesiGetir(txtAra.Text);
+
+            dgvListe.Rows.Clear();
+            foreach (var kisi in kisiListesi)
+            {
+                dgvListe.Rows.Add(kisi.AdiSoyadi);
+            }
+        }
+
+        private void KisiGetir(int satirIndeks)
+        {
+            MessageBox.Show(dgvListe.Rows[satirIndeks].Cells["AdiSoyadi"].Value.ToString());
+        }
+
+        private void dgvListe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            KisiGetir(e.RowIndex);
         }
     }
 }
