@@ -53,5 +53,12 @@ namespace TelefonDefteri.Business.KisiIsKatmani
             return kisiListesi;
         }
 
+        public Kisi KisiGetir(int kisiId)
+        {
+            KisiVeriErisimi kisiVeriErisimi = new KisiVeriErisimi();
+            Kisi kisi = kisiVeriErisimi.KisiGetir(kisiId);
+            return kisi;
+        }
+
     }
 }

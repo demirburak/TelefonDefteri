@@ -17,6 +17,8 @@ namespace TelefonDefteri
         private void Form1_Load(object sender, EventArgs e)
         {
             GruplariYukle();
+            dgvListe.Columns.Add("KisiId", "Kiþi Referans");
+            dgvListe.Columns["KisiId"].Visible = false;
             dgvListe.Columns.Add("AdiSoyadi", "Adý Soyadý");
         }
 
@@ -113,13 +115,28 @@ namespace TelefonDefteri
             dgvListe.Rows.Clear();
             foreach (var kisi in kisiListesi)
             {
-                dgvListe.Rows.Add(kisi.AdiSoyadi);
+                dgvListe.Rows.Add(kisi.KisiId, kisi.AdiSoyadi);
             }
         }
 
         private void KisiGetir(int satirIndeks)
         {
-            MessageBox.Show(dgvListe.Rows[satirIndeks].Cells["AdiSoyadi"].Value.ToString());
+            KisiYoneticisi kisiYoneticisi = new KisiYoneticisi();
+            int kisiId = Convert.ToInt32(dgvListe.Rows[satirIndeks].Cells["KisiId"].Value.ToString());
+            Kisi kisi = kisiYoneticisi.KisiGetir(kisiId);
+            Temizle();
+
+            lblid.Text = kisiId.ToString();
+            pbProfil.Image = kisi.ProfilResmi;
+            txtAdiSoyadi.Text = kisi.AdiSoyadi;
+            txtAciklama.Text = kisi.Aciklama;
+            txtAdres.Text = kisi.Adres;
+            txtIsyeri.Text = kisi.Isyeri;
+            txtUnvan.Text = kisi.Unvan;
+            cmbGrup.SelectedValue = kisi.GrupId;
+        
+            //lvEpostalar.Items.Clear();
+            //lvTelefonlar.Items.Clear();
         }
 
         private void dgvListe_CellClick(object sender, DataGridViewCellEventArgs e)
