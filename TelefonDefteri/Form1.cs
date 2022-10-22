@@ -20,6 +20,7 @@ namespace TelefonDefteri
             dgvListe.Columns.Add("KisiId", "Kiþi Referans");
             dgvListe.Columns["KisiId"].Visible = false;
             dgvListe.Columns.Add("AdiSoyadi", "Adý Soyadý");
+            Temizle();
         }
 
         private void GruplariYukle()
@@ -38,7 +39,7 @@ namespace TelefonDefteri
 
         private void Temizle()
         {
-            lblid.Text = "lblid";
+            lblid.Text = "";
             pbProfil.Image = null;
             txtAdiSoyadi.Text = "";
             txtAciklama.Text = "";
@@ -64,14 +65,31 @@ namespace TelefonDefteri
             KisiYoneticisi kisiYoneticisi = new();
             int grupId = (int)cmbGrup.SelectedValue;
 
-            string sonuc = kisiYoneticisi.KisiKaydet(
-                txtAdiSoyadi.Text, txtAdres.Text,
-                txtIsyeri.Text, txtUnvan.Text, txtAciklama.Text
-                , grupId);
+            string sonuc = "";
+            bool basarilimi = false;
+            if (lblid.Text == "") //Yeni Kayýt
+            {
+                sonuc = kisiYoneticisi.KisiKaydet(
+                    txtAdiSoyadi.Text, txtAdres.Text,
+                    txtIsyeri.Text, txtUnvan.Text, txtAciklama.Text
+                    , grupId);
+                if (sonuc == "Kayýt edildi") basarilimi = true;
+            }
+            else //Güncelleme
+            {
+                int kisiId = int.Parse(lblid.Text);
+
+                sonuc = kisiYoneticisi.KisiGuncelle(
+                   txtAdiSoyadi.Text, txtAdres.Text,
+                   txtIsyeri.Text, txtUnvan.Text, txtAciklama.Text
+                   , grupId,kisiId);
+                if (sonuc == "Güncellendi") basarilimi = true;
+            }
 
             MessageBox.Show(sonuc);
-
+            if (basarilimi) Temizle();
             KisiListesiGetir();
+            
         }
 
         private void btnAra_Click(object sender, EventArgs e)

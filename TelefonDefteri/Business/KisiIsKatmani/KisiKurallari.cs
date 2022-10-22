@@ -10,16 +10,16 @@ namespace TelefonDefteri.Business.KisiIsKatmani
         {
             string sonuc = "";
 
-            if (AyniKisidenVarmi(kisi.AdiSoyadi)) sonuc = "Aynı isimden farklı bir kayıt bulunmaktadır.";
+            if (AyniKisidenVarmi(kisi.AdiSoyadi,kisi.KisiId)) sonuc = "Aynı isimden farklı bir kayıt bulunmaktadır.";
 
             return sonuc;
         }
 
-        public bool AyniKisidenVarmi(string adiSoyadi)
+        public bool AyniKisidenVarmi(string adiSoyadi, int kisiId)
         {
             bool varmi = false;
 
-            string sorgu = $" SELECT * FROM Kisiler WHERE UPPER(AdiSoyadi)='{adiSoyadi.ToUpper()}' ";
+            string sorgu = $" SELECT * FROM Kisiler WHERE UPPER(AdiSoyadi)='{adiSoyadi.ToUpper()}' AND KisiId<>{kisiId} ";
             VtBaglantisi vtBaglantisi = new VtBaglantisi();
             DataTable dtSonuc = vtBaglantisi.VeriGetir(sorgu);
             if (dtSonuc.Rows.Count > 0)

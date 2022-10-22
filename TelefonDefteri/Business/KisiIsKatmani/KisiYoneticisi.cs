@@ -15,7 +15,7 @@ namespace TelefonDefteri.Business.KisiIsKatmani
         {
             string sonuc = "";
 
-            //Parametreler verileri doğrualamar yapılacak.
+            //Parametreler verileri doğrulamar yapılacak.
             KisiVeriDogrulama kisiVeriDogrulama = new KisiVeriDogrulama();
             sonuc = kisiVeriDogrulama.VeriDogrula(adiSoyadi, adres, isyeri, unvan,
                  aciklama, grupId);
@@ -58,6 +58,43 @@ namespace TelefonDefteri.Business.KisiIsKatmani
             KisiVeriErisimi kisiVeriErisimi = new KisiVeriErisimi();
             Kisi kisi = kisiVeriErisimi.KisiGetir(kisiId);
             return kisi;
+        }
+
+        public string KisiGuncelle(string adiSoyadi, string adres,
+            string isyeri, string unvan, string aciklama, int grupId, int kisiId)
+        {
+            string sonuc = "";
+
+            //Veri doğrulamaları
+            KisiVeriDogrulama kisiVeriDogrulama = new KisiVeriDogrulama();
+            sonuc = kisiVeriDogrulama.VeriDogrula(adiSoyadi, adres, isyeri, unvan,
+                 aciklama, grupId);
+            if (sonuc != "") return sonuc;
+
+            //Kisi nesnesine erişim ve yeni verileri ekleme
+            Kisi kisi = KisiGetir(kisiId);
+            if (kisi.KisiId == 0) return "Güncellenecek kişi kayıdı bulunamadı.";
+            kisi.Aciklama = aciklama;
+            kisi.AdiSoyadi = adiSoyadi;
+            kisi.Isyeri = isyeri.ToUpper();
+            kisi.GrupId = grupId;
+            kisi.Unvan = unvan;
+            kisi.Adres = adres;
+
+            //Kurallar
+            KisiKurallari kisiKurallari = new KisiKurallari();
+            sonuc = kisiKurallari.KuralKontrolEt(kisi);
+
+            if (sonuc != "") return sonuc;
+
+            //Güncelleme işlemi
+            KisiVeriErisimi kisiVeriErisimi = new KisiVeriErisimi();
+            sonuc = kisiVeriErisimi.Guncelle(kisi);
+
+            sonuc = (sonuc == "") ? "Güncellendi" : $"Hata : {sonuc} ";
+
+
+            return sonuc;
         }
 
     }
