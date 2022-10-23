@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EpostaDefteri.Business.EpostaIsKatmani;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,17 +9,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TelefonDefteri.Business.GrupIsKatmani;
+using TelefonDefteri.Business.TelefonIsKatmani;
 
 namespace TelefonDefteri
 {
     public partial class EklemeFormu : Form
     {
         string PencereTuru = "";
+        int KisiId = 0;
 
-        public EklemeFormu(string pencereTuru)
+        public EklemeFormu(string pencereTuru, int kisiId)
         {
             InitializeComponent();
             PencereTuru = pencereTuru;
+            KisiId = kisiId;
         }
 
         private void EklemeFormu_Load(object sender, EventArgs e)
@@ -66,10 +70,26 @@ namespace TelefonDefteri
 
         private void btnEpostaTelefonGrupEkle_Click(object sender, EventArgs e)
         {
-            GrupYoneticisi grupYoneticisi = new GrupYoneticisi();
-            string sonuc = grupYoneticisi.GrupKaydet(txtTur.Text, txtEpostaTelefonGrup.Text);
+            string sonuc = "";
+
+            if (PencereTuru == "Grup")
+            {
+                GrupYoneticisi grupYoneticisi = new GrupYoneticisi();
+                sonuc = grupYoneticisi.GrupKaydet(txtTur.Text, txtEpostaTelefonGrup.Text);
+            }
+            else if (PencereTuru == "Eposta")
+            {
+                EpostaYoneticisi epostaYoneticisi = new EpostaYoneticisi();
+                sonuc = epostaYoneticisi.EpostaEkle(txtEpostaTelefonGrup.Text, txtTur.Text, KisiId);
+            }
+            else if (PencereTuru == "Telefon")
+            {
+                TelefonYoneticisi telefonYoneticisi = new TelefonYoneticisi();
+                sonuc = telefonYoneticisi.TelefonEkle(txtEpostaTelefonGrup.Text, txtTur.Text, KisiId);
+            }
+
             MessageBox.Show(sonuc);
-           
+
         }
     }
 }

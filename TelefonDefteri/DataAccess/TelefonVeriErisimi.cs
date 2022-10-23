@@ -99,6 +99,30 @@ namespace TelefonDefteri.DataAccess
 
             return telefonlar;
         }
+        public List<Telefon> TelefonListesiGetir(int kisiId)
+        {
+            List<Telefon> telefonlar = new();
+
+            string sorgu = "SELECT * FROM Telefonlar " +
+                      $" WHERE " +
+                      $" KisiId = {kisiId} ";
+
+
+            VtBaglantisi vtBaglantisi = new();
+            DataTable dt = vtBaglantisi.VeriGetir(sorgu);
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Telefon telefon = new();
+                    telefon = DonusturDataRowdanTelefona(dr);
+                    telefonlar.Add(telefon);
+                }
+            }
+
+            return telefonlar;
+        }
         private Telefon DonusturDataRowdanTelefona(DataRow dr)
         {
             Telefon telefon = new Telefon();

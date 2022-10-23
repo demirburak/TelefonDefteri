@@ -4,6 +4,8 @@ using TelefonDefteri.Models;
 using TelefonDefteri.DataAccess;
 using TelefonDefteri.Business.KisiIsKatmani;
 using TelefonDefteri.Business.GrupIsKatmani;
+using TelefonDefteri.Business.TelefonIsKatmani;
+using EpostaDefteri.Business.EpostaIsKatmani;
 
 namespace TelefonDefteri
 {
@@ -99,21 +101,37 @@ namespace TelefonDefteri
 
         private void btnGrupEkle_Click(object sender, EventArgs e)
         {
-            EklemeFormu eklemeFormu = new EklemeFormu("Grup");
+            EklemeFormu eklemeFormu = new EklemeFormu("Grup",0);
             eklemeFormu.ShowDialog();
             GruplariYukle();
         }
 
         private void btnTelefonEkle_Click(object sender, EventArgs e)
         {
-            EklemeFormu eklemeFormu = new EklemeFormu("Telefon");
-            eklemeFormu.ShowDialog();
+            if (lblid.Text != "")
+            {
+                int kisiId = int.Parse(lblid.Text);
+                EklemeFormu eklemeFormu = new EklemeFormu("Telefon",kisiId);
+                eklemeFormu.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Kiþi kayýt edilmemiþ.");
+            }
         }
 
         private void btnEpostaEkle_Click(object sender, EventArgs e)
         {
-            EklemeFormu eklemeFormu = new EklemeFormu("Eposta");
-            eklemeFormu.ShowDialog();
+            if (lblid.Text != "")
+            {
+                int kisiId = int.Parse(lblid.Text);
+                EklemeFormu eklemeFormu = new EklemeFormu("Eposta",kisiId);
+                eklemeFormu.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Kiþi kayýt edilmemiþ.");
+            }
         }
 
         private void btnGrupCikar_Click(object sender, EventArgs e)
@@ -139,22 +157,48 @@ namespace TelefonDefteri
 
         private void KisiGetir(int satirIndeks)
         {
-            KisiYoneticisi kisiYoneticisi = new KisiYoneticisi();
-            int kisiId = Convert.ToInt32(dgvListe.Rows[satirIndeks].Cells["KisiId"].Value.ToString());
-            Kisi kisi = kisiYoneticisi.KisiGetir(kisiId);
-            Temizle();
+            try
+            {
 
-            lblid.Text = kisiId.ToString();
-            pbProfil.Image = kisi.ProfilResmi;
-            txtAdiSoyadi.Text = kisi.AdiSoyadi;
-            txtAciklama.Text = kisi.Aciklama;
-            txtAdres.Text = kisi.Adres;
-            txtIsyeri.Text = kisi.Isyeri;
-            txtUnvan.Text = kisi.Unvan;
-            cmbGrup.SelectedValue = kisi.GrupId;
-        
-            //lvEpostalar.Items.Clear();
-            //lvTelefonlar.Items.Clear();
+                KisiYoneticisi kisiYoneticisi = new KisiYoneticisi();
+                int kisiId = Convert.ToInt32(dgvListe.Rows[satirIndeks].Cells["KisiId"].Value.ToString());
+                Kisi kisi = kisiYoneticisi.KisiGetir(kisiId);
+                Temizle();
+
+                lblid.Text = kisiId.ToString();
+                pbProfil.Image = kisi.ProfilResmi;
+                txtAdiSoyadi.Text = kisi.AdiSoyadi;
+                txtAciklama.Text = kisi.Aciklama;
+                txtAdres.Text = kisi.Adres;
+                txtIsyeri.Text = kisi.Isyeri;
+                txtUnvan.Text = kisi.Unvan;
+                cmbGrup.SelectedValue = kisi.GrupId;
+
+                lvEpostalar.Items.Clear();
+                lvTelefonlar.Items.Clear();
+
+                TelefonYoneticisi telefonYoneticisi = new TelefonYoneticisi();
+                List<Telefon> kisininTelefonListesi = telefonYoneticisi.TelefonListesiGetir(kisiId);
+                foreach (var telefon in kisininTelefonListesi)
+                {
+                    ListViewItem lvItem = new ListViewItem(telefon.TelefonId.ToString());
+                    lvItem.SubItems.Add(telefon.Tur);
+                    lvItem.SubItems.Add(telefon.TelefonNumarasi);
+                    lvTelefonlar.Items.Add(lvItem);
+                }
+
+                EpostaYoneticisi epostaYoneticisi = new EpostaYoneticisi();
+                List<Eposta> kisininEpostaListesi = epostaYoneticisi.EpostaListesiGetir(kisiId);
+                foreach (var eposta in kisininEpostaListesi)
+                {
+                    ListViewItem lvItem = new ListViewItem(eposta.EpostaId.ToString());
+                    lvItem.SubItems.Add(eposta.Tur);
+                    lvItem.SubItems.Add(eposta.EpostaAdresi);
+                    lvEpostalar.Items.Add(lvItem);
+                }
+            }
+            catch { }
+
         }
 
         private void dgvListe_CellClick(object sender, DataGridViewCellEventArgs e)

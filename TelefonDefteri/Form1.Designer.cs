@@ -66,6 +66,8 @@
             this.lblIsyeri = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lblAdiSoyadi = new System.Windows.Forms.Label();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListe)).BeginInit();
@@ -322,6 +324,7 @@
             // 
             this.lvEpostalar.CheckBoxes = true;
             this.lvEpostalar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
             this.columnHeader1,
             this.columnHeader2});
             this.lvEpostalar.Location = new System.Drawing.Point(18, 405);
@@ -333,11 +336,13 @@
             // 
             // columnHeader1
             // 
+            this.columnHeader1.DisplayIndex = 0;
             this.columnHeader1.Text = "Tür";
             this.columnHeader1.Width = 80;
             // 
             // columnHeader2
             // 
+            this.columnHeader2.DisplayIndex = 1;
             this.columnHeader2.Text = "Eposta";
             this.columnHeader2.Width = 400;
             // 
@@ -345,6 +350,7 @@
             // 
             this.lvTelefonlar.CheckBoxes = true;
             this.lvTelefonlar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
             this.columnHeader3,
             this.columnHeader4});
             this.lvTelefonlar.Location = new System.Drawing.Point(18, 269);
@@ -356,11 +362,13 @@
             // 
             // columnHeader3
             // 
+            this.columnHeader3.DisplayIndex = 0;
             this.columnHeader3.Text = "Tür";
             this.columnHeader3.Width = 80;
             // 
             // columnHeader4
             // 
+            this.columnHeader4.DisplayIndex = 1;
             this.columnHeader4.Text = "Telefon";
             this.columnHeader4.Width = 400;
             // 
@@ -471,6 +479,16 @@
             this.lblAdiSoyadi.TabIndex = 0;
             this.lblAdiSoyadi.Text = "Adı Soyadı";
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Seç";
+            this.columnHeader5.Width = 20;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Seç";
+            this.columnHeader6.Width = 20;
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnAra;
@@ -534,5 +552,7 @@
         private Button btnTelefonCikar;
         private TextBox txtAciklama;
         private Label label4;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader5;
     }
 }

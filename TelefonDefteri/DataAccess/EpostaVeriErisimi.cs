@@ -100,6 +100,30 @@ namespace TelefonDefteri.DataAccess
             }
             return epostalar;
         }
+        public List<Eposta> EpostaListesiGetir(int kisiId)
+        {
+            List<Eposta> epostalar = new();
+
+            string sorgu = "SELECT * FROM Epostalar" +
+                       $" WHERE " +
+                       $" KisiId = {kisiId} ";
+
+
+
+            VtBaglantisi vtBaglantisi = new();
+            DataTable dt = vtBaglantisi.VeriGetir(sorgu);
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Eposta eposta = new();
+                    eposta = DonusturDataRowdanEpostaya(dr);
+                    epostalar.Add(eposta);
+                }
+            }
+            return epostalar;
+        }
         private Eposta DonusturDataRowdanEpostaya(DataRow dr)
         {
             Eposta eposta = new Eposta();
