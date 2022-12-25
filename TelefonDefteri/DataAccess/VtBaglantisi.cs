@@ -34,7 +34,7 @@ namespace TelefonDefteri.DataAccess
             return veriTablosu;
         }
 
-        public int VeriGotur(string sqlSatiri)
+        public int VeriGotur(string sqlSatiri, byte[] resim)
         {
             int etkilenenSatirAdedi = 0;
 
@@ -44,6 +44,16 @@ namespace TelefonDefteri.DataAccess
                 sqlBaglantim2.Open();
 
                 SqlCommand sqlKomutu = new SqlCommand(sqlSatiri, sqlBaglantim2);
+
+                if (resim.Length > 0)
+                {
+                    SqlParameter sqlParameter = new SqlParameter();
+                    sqlParameter.SqlDbType = SqlDbType.Image;
+                    sqlParameter.SqlValue = resim;
+                    sqlParameter.ParameterName = "profilResmi";
+                    sqlKomutu.Parameters.Add(sqlParameter);
+                }
+
                 etkilenenSatirAdedi = sqlKomutu.ExecuteNonQuery();
 
                 sqlBaglantim2.Close();
@@ -54,6 +64,11 @@ namespace TelefonDefteri.DataAccess
             }
 
             return etkilenenSatirAdedi;
+        }
+
+        public int VeriGotur(string sqlSatiri)
+        {
+            return VeriGotur(sqlSatiri, new byte[0]);
         }
 
 

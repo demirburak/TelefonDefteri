@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -15,14 +16,16 @@ namespace TelefonDefteri.DataAccess
         {
             string sonuc = "";
 
+            byte[] resimBytes = DonusturResimdenBytea(kisi.ProfilResmi);
+
             string sorgu = "INSERT INTO Kisiler " +
                 " (AdiSoyadi,ProfilResmi,Adres,Isyeri,Unvan,GrupId,Aciklama)" +
                 " VALUES " +
-               $" ('{kisi.AdiSoyadi}',null,'{kisi.Adres}','{kisi.Isyeri}','{kisi.Unvan}'," +
+               $" ('{kisi.AdiSoyadi}',@profilResmi,'{kisi.Adres}','{kisi.Isyeri}','{kisi.Unvan}'," +
                $"  {kisi.GrupId},'{kisi.Aciklama}' ) ";
 
             VtBaglantisi vtBaglantisi = new VtBaglantisi();
-            int etkilenenSatirSayisi = vtBaglantisi.VeriGotur(sorgu);
+            int etkilenenSatirSayisi = vtBaglantisi.VeriGotur(sorgu, resimBytes);
 
             if (etkilenenSatirSayisi == 0)
             {
@@ -36,10 +39,12 @@ namespace TelefonDefteri.DataAccess
         {
             string sonuc = "";
 
+            byte[] resimBytes = DonusturResimdenBytea(kisi.ProfilResmi);
+
             string sorgu = "UPDATE Kisiler " +
                 " SET " +
                     $" AdiSoyadi = '{kisi.AdiSoyadi}'," +
-                    $" ProfilResmi = NULL," +
+                    $" ProfilResmi = @profilResmi," +
                     $" Adres = '{kisi.Adres}', " +
                     $" Isyeri = '{kisi.Isyeri}', " +
                     $" Unvan = '{kisi.Unvan}', " +
@@ -48,7 +53,7 @@ namespace TelefonDefteri.DataAccess
                 $" WHERE KisiId = {kisi.KisiId} ";
 
             VtBaglantisi vtBaglantisi = new VtBaglantisi();
-            int etkilenenSatirSayisi = vtBaglantisi.VeriGotur(sorgu);
+            int etkilenenSatirSayisi = vtBaglantisi.VeriGotur(sorgu, resimBytes);
 
             if (etkilenenSatirSayisi == 0)
             {
@@ -133,8 +138,30 @@ namespace TelefonDefteri.DataAccess
             kisi.Isyeri = (dr.IsNull("Isyeri")) ? "" : dr["Isyeri"].ToString();
             kisi.Unvan = (dr.IsNull("Unvan")) ? "" : dr["Unvan"].ToString();
             kisi.Aciklama = (dr.IsNull("Aciklama")) ? "" : dr["Aciklama"].ToString();
+            kisi.ProfilResmi = (dr.IsNull("ProfilResmi")) ? null : DonusturResimdenBytea((byte[])dr["ProfilResmi"]);
 
             return kisi;
+        }
+
+        private byte[] DonusturResimdenBytea(Image image)
+        {
+            byte[] resimBytes = new byte[0];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, ImageFormat.Jpeg);
+                resimBytes = ms.ToArray();
+            }
+            return resimBytes;
+        }
+
+        private Image DonusturResimdenBytea(byte[] bytes)
+        {
+            Image image = null;
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                image = Image.FromStream(ms);
+            }
+            return image;
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace TelefonDefteri.Business.KisiIsKatmani
     public class KisiYoneticisi
     {
         public string KisiKaydet(string adiSoyadi, string adres,
-            string isyeri, string unvan, string aciklama, int grupId)
+            string isyeri, string unvan, string aciklama, int grupId, Image profilResmi)
         {
             string sonuc = "";
 
@@ -29,6 +30,7 @@ namespace TelefonDefteri.Business.KisiIsKatmani
             kisi.GrupId = grupId;
             kisi.Isyeri = isyeri.ToUpper();
             kisi.Unvan = unvan;
+            kisi.ProfilResmi = profilResmi;
 
             //Parametrelere kurallar uygulanacak.
             KisiKurallari kisiKurallari = new KisiKurallari();
@@ -61,7 +63,7 @@ namespace TelefonDefteri.Business.KisiIsKatmani
         }
 
         public string KisiGuncelle(string adiSoyadi, string adres,
-            string isyeri, string unvan, string aciklama, int grupId, int kisiId)
+            string isyeri, string unvan, string aciklama, int grupId, int kisiId, Image profilResmi)
         {
             string sonuc = "";
 
@@ -80,6 +82,7 @@ namespace TelefonDefteri.Business.KisiIsKatmani
             kisi.GrupId = grupId;
             kisi.Unvan = unvan;
             kisi.Adres = adres;
+            kisi.ProfilResmi = profilResmi;
 
             //Kurallar
             KisiKurallari kisiKurallari = new KisiKurallari();
@@ -96,6 +99,7 @@ namespace TelefonDefteri.Business.KisiIsKatmani
 
             return sonuc;
         }
+
 
     }
 }

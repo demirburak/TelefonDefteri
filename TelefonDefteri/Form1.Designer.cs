@@ -49,9 +49,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnTemizle = new System.Windows.Forms.Button();
             this.lvEpostalar = new System.Windows.Forms.ListView();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.lvTelefonlar = new System.Windows.Forms.ListView();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.pbProfil = new System.Windows.Forms.PictureBox();
@@ -66,8 +68,7 @@
             this.lblIsyeri = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lblAdiSoyadi = new System.Windows.Forms.Label();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListe)).BeginInit();
@@ -334,15 +335,18 @@
             this.lvEpostalar.UseCompatibleStateImageBehavior = false;
             this.lvEpostalar.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Seç";
+            this.columnHeader6.Width = 20;
+            // 
             // columnHeader1
             // 
-            this.columnHeader1.DisplayIndex = 0;
             this.columnHeader1.Text = "Tür";
             this.columnHeader1.Width = 80;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.DisplayIndex = 1;
             this.columnHeader2.Text = "Eposta";
             this.columnHeader2.Width = 400;
             // 
@@ -360,25 +364,31 @@
             this.lvTelefonlar.UseCompatibleStateImageBehavior = false;
             this.lvTelefonlar.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Seç";
+            this.columnHeader5.Width = 20;
+            // 
             // columnHeader3
             // 
-            this.columnHeader3.DisplayIndex = 0;
             this.columnHeader3.Text = "Tür";
             this.columnHeader3.Width = 80;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.DisplayIndex = 1;
             this.columnHeader4.Text = "Telefon";
             this.columnHeader4.Width = 400;
             // 
             // pbProfil
             // 
+            this.pbProfil.BackColor = System.Drawing.Color.White;
             this.pbProfil.Location = new System.Drawing.Point(358, 19);
             this.pbProfil.Name = "pbProfil";
             this.pbProfil.Size = new System.Drawing.Size(101, 109);
+            this.pbProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfil.TabIndex = 16;
             this.pbProfil.TabStop = false;
+            this.pbProfil.Click += new System.EventHandler(this.pbProfil_Click);
             // 
             // label2
             // 
@@ -479,15 +489,9 @@
             this.lblAdiSoyadi.TabIndex = 0;
             this.lblAdiSoyadi.Text = "Adı Soyadı";
             // 
-            // columnHeader5
+            // openFileDialog1
             // 
-            this.columnHeader5.Text = "Seç";
-            this.columnHeader5.Width = 20;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Seç";
-            this.columnHeader6.Width = 20;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -554,5 +558,6 @@
         private Label label4;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader5;
+        private OpenFileDialog openFileDialog1;
     }
 }

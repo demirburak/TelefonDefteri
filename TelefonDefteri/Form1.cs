@@ -69,12 +69,13 @@ namespace TelefonDefteri
 
             string sonuc = "";
             bool basarilimi = false;
+            Image profilResmi = pbProfil.Image;
             if (lblid.Text == "") //Yeni Kayýt
             {
                 sonuc = kisiYoneticisi.KisiKaydet(
                     txtAdiSoyadi.Text, txtAdres.Text,
                     txtIsyeri.Text, txtUnvan.Text, txtAciklama.Text
-                    , grupId);
+                    , grupId, profilResmi);
                 if (sonuc == "Kayýt edildi") basarilimi = true;
             }
             else //Güncelleme
@@ -84,14 +85,14 @@ namespace TelefonDefteri
                 sonuc = kisiYoneticisi.KisiGuncelle(
                    txtAdiSoyadi.Text, txtAdres.Text,
                    txtIsyeri.Text, txtUnvan.Text, txtAciklama.Text
-                   , grupId,kisiId);
+                   , grupId, kisiId, profilResmi);
                 if (sonuc == "Güncellendi") basarilimi = true;
             }
 
             MessageBox.Show(sonuc);
             if (basarilimi) Temizle();
             KisiListesiGetir();
-            
+
         }
 
         private void btnAra_Click(object sender, EventArgs e)
@@ -101,7 +102,7 @@ namespace TelefonDefteri
 
         private void btnGrupEkle_Click(object sender, EventArgs e)
         {
-            EklemeFormu eklemeFormu = new EklemeFormu("Grup",0);
+            EklemeFormu eklemeFormu = new EklemeFormu("Grup", 0);
             eklemeFormu.ShowDialog();
             GruplariYukle();
         }
@@ -111,7 +112,7 @@ namespace TelefonDefteri
             if (lblid.Text != "")
             {
                 int kisiId = int.Parse(lblid.Text);
-                EklemeFormu eklemeFormu = new EklemeFormu("Telefon",kisiId);
+                EklemeFormu eklemeFormu = new EklemeFormu("Telefon", kisiId);
                 eklemeFormu.ShowDialog();
             }
             else
@@ -125,7 +126,7 @@ namespace TelefonDefteri
             if (lblid.Text != "")
             {
                 int kisiId = int.Parse(lblid.Text);
-                EklemeFormu eklemeFormu = new EklemeFormu("Eposta",kisiId);
+                EklemeFormu eklemeFormu = new EklemeFormu("Eposta", kisiId);
                 eklemeFormu.ShowDialog();
             }
             else
@@ -204,6 +205,19 @@ namespace TelefonDefteri
         private void dgvListe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             KisiGetir(e.RowIndex);
+        }
+
+        private void pbProfil_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Image image = Bitmap.FromFile(openFileDialog1.FileName);
+                    pbProfil.Image = image;
+                }
+                catch { }
+            }
         }
     }
 }
